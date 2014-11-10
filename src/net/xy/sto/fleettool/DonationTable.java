@@ -1,3 +1,5 @@
+package net.xy.sto.fleettool;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileFilter;
@@ -17,18 +19,46 @@ import java.util.Properties;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
+/**
+ * parser, store and renderer for fleet data
+ *
+ * @author Xyan
+ *
+ */
 public class DonationTable
 {
-	final SimpleDateFormat df = new SimpleDateFormat("yyMMdd_HHmmss");
-	// Date -> ID -> slot -> donation
-	Map<String, Map<Date, Map<Integer, Integer>>> store = new TreeMap<String, Map<Date, Map<Integer, Integer>>>();
+	/**
+	 * dateformat file pattern vor donation data
+	 */
+	public static final SimpleDateFormat DF_FLEET_DONATIONS = new SimpleDateFormat("yyMMdd_HHmmss");
+	/**
+	 * data store, Nick -> Date -> slot -> donation
+	 */
+	private final Map<String, Map<Date, Map<Integer, Integer>>> store = new TreeMap<String, Map<Date, Map<Integer, Integer>>>();
+	/**
+	 * data root directory
+	 */
 	private final File root;
 
+	/**
+	 * default
+	 *
+	 * @param root
+	 * @throws ParseException
+	 * @throws IOException
+	 */
 	public DonationTable(final File root) throws ParseException, IOException
 	{
 		this.root = root;
 	}
 
+	/**
+	 * scans and parses the data directory for data
+	 *
+	 * @param root
+	 * @throws ParseException
+	 * @throws IOException
+	 */
 	private void parseData(final File root) throws ParseException, IOException
 	{
 		for (final File file : root.listFiles(new FileFilter()
@@ -40,11 +70,18 @@ public class DonationTable
 			}
 		}))
 		{
-			final Date fd = df.parse(file.getName().substring(0, file.getName().length() - 4));
+			final Date fd = DF_FLEET_DONATIONS.parse(file.getName().substring(0, file.getName().length() - 4));
 			parseFile(file, fd);
 		}
 	}
 
+	/**
+	 * parses fleet data from the data directory
+	 *
+	 * @param file
+	 * @param fd
+	 * @throws IOException
+	 */
 	private void parseFile(final File file, final Date fd) throws IOException
 	{
 		final BufferedReader buf = new BufferedReader(new InputStreamReader(new FileInputStream(file), "latin1"));
@@ -80,6 +117,12 @@ public class DonationTable
 		}
 	}
 
+	/**
+	 * renders html with the given properties
+	 *
+	 * @param props
+	 * @return
+	 */
 	public String renderView(final Properties props)
 	{
 		store.clear();
@@ -105,12 +148,8 @@ public class DonationTable
 
 		final TreeSet<Date> dates = new TreeSet<Date>();
 		for (final Entry<String, Map<Date, Map<Integer, Integer>>> entry : store.entrySet())
-		{
 			for (final Entry<Date, Map<Integer, Integer>> date : entry.getValue().entrySet())
-			{
 				dates.add(date.getKey());
-			}
-		}
 		final List<Date> datesrev = new ArrayList<Date>(dates);
 		Collections.reverse(datesrev);
 
@@ -142,7 +181,8 @@ public class DonationTable
 				final StringBuilder title = new StringBuilder();
 				final Map<Integer, Integer> dons = entry.getValue().get(hd);
 
-				if (dons != null && !dons.isEmpty()) {
+				if (dons != null && !dons.isEmpty())
+				{
 					title.append("Departments:\n");
 					for (final Entry<Integer, Integer> depart : dons.entrySet())
 					{
@@ -154,7 +194,7 @@ public class DonationTable
 						title.append(", ");
 						depSums[depId] = depart.getValue();
 					}
-					}
+				}
 				if (title.length() > 0)
 				{
 					title.setLength(title.length() - 2);
@@ -167,13 +207,11 @@ public class DonationTable
 					title.append("\n\nDifference:\n");
 					final int tdiff = sum - lastSum;
 					for (int i = 0; i < lastDepSums.length; i++)
-					{
 						if (lastDepSums[i] != null && lastDepSums[i] != depSums[i])
 						{
 							final int ddiff = depSums[i] - lastDepSums[i];
 							title.append("" + getName(i) + ":" + (ddiff > 0 ? "+" : "") + ddiff + ", ");
 						}
-					}
 					title.append(", Total:" + (tdiff > 0 ? "+" : "") + tdiff + "");
 				}
 				td.append("<td class=\"credits\" title=\"" + title.toString() + "\"");
@@ -197,6 +235,12 @@ public class DonationTable
 		return sb.toString();
 	}
 
+	/**
+	 * gets the department name from its index
+	 *
+	 * @param key
+	 * @return
+	 */
 	private String getName(final Integer key)
 	{
 		// 0 Botschaft, 1 Mine, 2 Spire, 3 Basis

@@ -1,3 +1,5 @@
+package net.xy.sto.fleettool;
+
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -52,55 +54,70 @@ import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpServer;
 
+/**
+ * Main entry point
+ *
+ * @author Xyan
+ *
+ */
 public class Main
 {
+	private static final String GATEWAY = "http://gateway.startrekonline.com";
 	/**
 	 * executor for http requests
 	 */
 	private final ThreadPoolExecutor pool = new ThreadPoolExecutor(3, 10, 10, TimeUnit.MINUTES,
 			new ArrayBlockingQueue<Runnable>(100), new ThreadFactory()
-	{
-		/**
-		 * group
-		 */
-		private final ThreadGroup group = new ThreadGroup(Thread.currentThread().getThreadGroup(), "HttpStatWorker");
-		/**
-		 * incrementor
-		 */
-		private int count = 0;
+			{
+				/**
+				 * group
+				 */
+				private final ThreadGroup group = new ThreadGroup(Thread.currentThread().getThreadGroup(), "HttpStatWorker");
+				/**
+				 * incrementor
+				 */
+				private int count = 0;
 
-		@Override
-		public Thread newThread(final Runnable r)
-		{
-			final Thread th = new Thread(group, r);
-			th.setDaemon(true);
-			th.setName("HttpStatWorker-" + count++);
-			return th;
-		}
-	});
+				@Override
+				public Thread newThread(final Runnable r)
+				{
+					final Thread th = new Thread(group, r);
+					th.setDaemon(true);
+					th.setName("HttpWorker-" + count++);
+					return th;
+				}
+			});
 	/**
 	 * server ref
 	 */
 	private HttpServer server;
+	/**
+	 * data store parser and renderer
+	 */
 	private final DonationTable donationTable;
 
+	/**
+	 * default
+	 */
 	public Main() throws ParseException, IOException
 	{
 		donationTable = new DonationTable(new File("data"));
 	}
 
+	/**
+	 * main
+	 */
 	public static void main(final String[] args) throws Exception
 	{
 		if (args.length > 0 && "server".equals(args[0]))
-		{
 			new Main().startServer();
-		}
 		else
-		{
 			requestData();
-		}
 	}
 
+	/**
+	 * simply starts an webserver
+	 */
 	private void startServer() throws IOException
 	{
 		server = HttpServer.create(new InetSocketAddress(8086), 5);
@@ -147,9 +164,12 @@ public class Main
 		});
 		server.start();
 
-//		server.stop(0);
+		// server.stop(0);
 	}
 
+	/**
+	 * does the gateway requests and stores the result
+	 */
 	public static void requestData() throws Exception
 	{
 		// TODO
@@ -186,65 +206,65 @@ public class Main
 		final String idAccount = "" + authjn.getInt("idAccount");
 
 		// get remote time
-		toString(cl.execute(addHeader(new HttpGet("http://gateway.startrekonline.com/time")), ctx).getEntity());
+		EntityUtils.consumeQuietly(cl.execute(addHeader(new HttpGet(GATEWAY + "/time")), ctx).getEntity());
 
 		// req data tables
-		resp = toString(cl.execute(addHeader(new HttpGet("http://gateway.startrekonline.com/dataTables.js")), ctx)
-				.getEntity());
+		EntityUtils.consumeQuietly(cl.execute(addHeader(new HttpGet(GATEWAY + "/dataTables.js")), ctx).getEntity());
 
 		// get gateway cookie
-		final String uri = "http://gateway.startrekonline.com/?account=" + idAccount + "&ticket=" + idTicket + "&browser="
-				+ idBrowser + "";
-		toString(cl.execute(addHeader(new HttpGet(uri)), ctx).getEntity());
+		final String uri = GATEWAY + "/?account=" + idAccount + "&ticket=" + idTicket + "&browser=" + idBrowser + "";
+		EntityUtils.consumeQuietly(cl.execute(addHeader(new HttpGet(uri)), ctx).getEntity());
 
 		// get pool token
-		resp = toString(cl.execute(addHeader(new HttpGet("http://gateway.startrekonline.com/socket.io/1/?t=1415495664634")),
-				ctx).getEntity());
+		resp = toString(cl.execute(addHeader(new HttpGet(GATEWAY + "/socket.io/1/?t=1415495664634")), ctx).getEntity());
 		final String tok = resp.split(":", 2)[0];
 
 		// init and succ login
-		getPool(cl, tok, ctx, "1:");
-		getPool(cl, tok, ctx, "LoginSuccess");
+		pollFor(cl, tok, ctx, "1:");
+		pollFor(cl, tok, ctx, "LoginSuccess");
 
 		// start protocol
 		final String reqDefRsc = "5:::{\"name\":\"Client_RequestDefaultResource\",\"args\":[{\"dictname\":\"CharacterClass\"}]}";
 		sendPost(cl, tok, reqDefRsc, ctx);
-		getPool(cl, tok, ctx, "DefaultResource");
+		pollFor(cl, tok, ctx, "DefaultResource");
 
 		final String reqRsc = "5:::{\"name\":\"Client_RequestResource\",\"args\":[{\"dictname\":\"CharacterClass\",\"id\":\"Starfleet_Science\"}]}";
 		sendPost(cl, tok, reqRsc, ctx);
-		getPool(cl, tok, ctx, "Proxy_Resource");
+		pollFor(cl, tok, ctx, "Proxy_Resource");
 
 		final String reqRsc2 = "5:::{\"name\":\"Client_RequestResource\",\"args\":[{\"dictname\":\"CharacterClass\",\"id\":\"Dreadnought_Scimitar_Tac_T5u\"}]}";
 		sendPost(cl, tok, reqRsc2, ctx);
-		getPool(cl, tok, ctx, "Proxy_Resource");
+		pollFor(cl, tok, ctx, "Proxy_Resource");
 
 		final String sendTick = "5:::{\"name\":\"Client_SendAnalyticTick\",\"args\":[{\"bucket\":\"User:CharacterSelect\",\"count\":1}]}";
 		sendPost(cl, tok, sendTick, ctx);
 
 		final String reqEnt = "5:::{\"name\":\"Client_RequestEntity\",\"args\":[{\"id\":\"Xyan Karii@xyan2\",\"params\":{}}]}";
 		sendPost(cl, tok, reqEnt, ctx);
-		getPool(cl, tok, ctx, "Proxy_LoginEntity");
+		pollFor(cl, tok, ctx, "Proxy_LoginEntity");
 
-		getPool(cl, tok, ctx, "Proxy_Pet");
+		pollFor(cl, tok, ctx, "Proxy_Pet");
 
 		// select me
-		toString(cl.execute(addHeader(new HttpGet("http://gateway.startrekonline.com/ent/me")), ctx).getEntity());
+		EntityUtils.consumeQuietly(cl.execute(addHeader(new HttpGet(GATEWAY + "/ent/me")), ctx).getEntity());
 
 		final String reqPersPro = "5:::{\"name\":\"Client_RequestPersonalProject\",\"args\":[{\"id\":\"4551030\",\"params\":{}}]}";
 		sendPost(cl, tok, reqPersPro, ctx);
-		getPool(cl, tok, ctx, "Proxy_PersonalProject");
+		pollFor(cl, tok, ctx, "Proxy_PersonalProject");
 
 		sendPost(cl, tok, "5:::{\"name\":\"Client_RequestGuild\",\"args\":[{\"id\":\"Raumflotte\",\"params\":{}}]}", ctx);
-		getPool(cl, tok, ctx, "Proxy_Guild");
+		pollFor(cl, tok, ctx, "Proxy_Guild");
 
 		// get final data
 		sendPost(cl, tok, "5:::{\"name\":\"Client_RequestGroupProject\",\"args\":[{\"id\":\"2909\",\"params\":{}}]}", ctx);
-		final String awn = getPool(cl, tok, ctx, "Proxy_GroupProject");
+		final String awn = pollFor(cl, tok, ctx, "Proxy_GroupProject");
 
 		saveData(awn);
 	}
 
+	/**
+	 * stores the gateway awnser jsondata to an file
+	 */
 	private static void saveData(final String awn) throws IOException
 	{
 		final File root = new File("data");
@@ -282,6 +302,9 @@ public class Main
 		}
 	}
 
+	/**
+	 * reads an request entity to an string
+	 */
 	public static String toString(final HttpEntity ent) throws IllegalStateException, IOException
 	{
 		final String res = IOUtils.toString(ent.getContent());
@@ -289,9 +312,12 @@ public class Main
 		return res;
 	}
 
+	/**
+	 * add an default header set
+	 */
 	private static <R extends HttpRequestBase> R addHeader(final R req)
 	{
-		req.addHeader("Referer", "http://gateway.startrekonline.com/");
+		req.addHeader("Referer", GATEWAY + "/");
 		req.addHeader("Accept", "*/*");
 		req.addHeader("Accept-Encoding", "gzip,deflate,sdch");
 		req.addHeader("Accept-Language", "de-DE,de;q=0.8,en-US;q=0.6,en;q=0.4");
@@ -300,6 +326,12 @@ public class Main
 		return req;
 	}
 
+	/**
+	 * creates and preconfigures an http client
+	 *
+	 * @param sc
+	 * @return
+	 */
 	private static CloseableHttpClient createClient(final SSLContext sc)
 	{
 		final SSLConnectionSocketFactory sslsf = new SSLConnectionSocketFactory(sc, new String[] { "TLSv1" }, null,
@@ -319,11 +351,23 @@ public class Main
 		return cl;
 	}
 
-	private static String getPool(final CloseableHttpClient cl, final String btok, final HttpContext ctx,
+	/**
+	 * pool the awnser socket for messages
+	 *
+	 * @param cl
+	 * @param btok
+	 * @param ctx
+	 * @param contains
+	 * @return
+	 * @throws IOException
+	 * @throws ClientProtocolException
+	 * @throws InterruptedException
+	 */
+	private static String pollFor(final CloseableHttpClient cl, final String btok, final HttpContext ctx,
 			final String contains) throws IOException, ClientProtocolException, InterruptedException
 	{
-		final HttpGet httpget = addHeader(new HttpGet("http://gateway.startrekonline.com/socket.io/1/xhr-polling/" + btok
-				+ "?t=" + System.currentTimeMillis()));
+		final HttpGet httpget = addHeader(new HttpGet(GATEWAY + "/socket.io/1/xhr-polling/" + btok + "?t="
+				+ System.currentTimeMillis()));
 		for (int i = 0; i < 2; i++)
 		{
 			final String awn = toString(cl.execute(httpget, ctx).getEntity());
@@ -333,19 +377,29 @@ public class Main
 				return awn;
 			}
 			else
-			{
 				System.out.println("!!!\t" + awn.substring(0, Math.min(300, awn.length() - 1)));
-			}
 		}
 		return null;
 	}
 
+	/**
+	 * sends an post request to the gateway
+	 *
+	 * @param cl
+	 * @param btok
+	 * @param dat
+	 * @param ctx
+	 * @throws UnsupportedEncodingException
+	 * @throws IOException
+	 * @throws ClientProtocolException
+	 * @throws InterruptedException
+	 */
 	private static void sendPost(final CloseableHttpClient cl, final String btok, final String dat, final HttpContext ctx)
 			throws UnsupportedEncodingException, IOException, ClientProtocolException, InterruptedException
 	{
 		Thread.sleep(50);
-		final HttpPost httpost = addHeader(new HttpPost("http://gateway.startrekonline.com/socket.io/1/xhr-polling/" + btok
-				+ "?t=" + System.currentTimeMillis()));
+		final HttpPost httpost = addHeader(new HttpPost(GATEWAY + "/socket.io/1/xhr-polling/" + btok + "?t="
+				+ System.currentTimeMillis()));
 		httpost.setEntity(new StringEntity(dat));
 
 		final String str = toString(cl.execute(httpost, ctx).getEntity());
