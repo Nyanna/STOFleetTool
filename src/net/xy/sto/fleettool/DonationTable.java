@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileFilter;
 import java.io.FileInputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.text.DateFormat;
@@ -18,6 +19,9 @@ import java.util.Map.Entry;
 import java.util.Properties;
 import java.util.TreeMap;
 import java.util.TreeSet;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 /**
  * parser, store and renderer for fleet data
@@ -94,7 +98,9 @@ public class DonationTable
 				if (cols.length != 4)
 					continue;
 
-				final String nick = cols[2].trim();
+				String nick = cols[2].trim();
+				final String[] nickParts = nick.split("@");
+				nick = "@" + nickParts[1] + "->" + nickParts[0];
 				Map<Date, Map<Integer, Integer>> dates = store.get(nick);
 				if (dates == null)
 				{
@@ -135,16 +141,7 @@ public class DonationTable
 			e.printStackTrace();
 		}
 		final StringBuilder sb = new StringBuilder();
-		sb.append("<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\"\r\n"
-				+ "\"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\r\n"
-				+ "<html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"en\" lang=\"en\">\r\n" + "<head>");
-		sb.append("<style type=\"text/css\">\n" + "	* {font-family:\"arial\";font-size:12px;} \n"
-				+ "	td {border-bottom:1px solid #AAAAAA;border-right:1px solid #AAAAAA;} \n"
-				+ "	.credits {text-align:right;} \n" + "	.date, .nick {font-weight:bold;} \n" + "		</style>");
-		sb.append("</head>");
-		sb.append("<body>");
 		sb.append("<table border=\"0\" padding=\"0\" spacing=\"0\">\n");
-		sb.append("</body></html>");
 
 		final TreeSet<Date> dates = new TreeSet<Date>();
 		for (final Entry<String, Map<Date, Map<Integer, Integer>>> entry : store.entrySet())
@@ -256,6 +253,46 @@ public class DonationTable
 			return "Basis";
 		default:
 			return key.toString();
+		}
+	}
+
+	/**
+	 * stores the gateway awnser jsondata to an file
+	 */
+	public static void saveData(final String awn, final Date now) throws IOException
+	{
+		final File root = new File("data");
+		if (!root.isDirectory())
+			root.mkdirs();
+		final SimpleDateFormat df = new SimpleDateFormat("yyMMdd_HHmmss");
+		final File target = new File(root, df.format(now) + ".txt");
+		// args -> 0 -> container -> states -> X -> donationstats[]
+		// 0 Botschaft, 1 Mine, 2 Spire, 3 Basis
+		// {id:1386, displayname:Joran Brixs@Brixs, contribution:28125}
+		FileWriter fw = null;
+		try
+		{
+			fw = new FileWriter(target);
+			final JSONObject dat = new JSONObject(awn.substring(4));
+			final JSONArray states = ((JSONObject) dat.getJSONArray("args").get(0)).getJSONObject("container").getJSONArray(
+					"states");
+			for (int i = 0; i < states.length(); i++)
+			{
+				fw.write("\t=====  " + i + "  =====\n");
+				final JSONArray dons = ((JSONObject) states.get(i)).getJSONArray("donationstats");
+				for (int i2 = 0; i2 < dons.length(); i2++)
+				{
+					final JSONObject don = (JSONObject) dons.get(i2);
+					final int id = don.getInt("id");
+					final String name = don.getString("displayname");
+					final int credits = don.getInt("contribution");
+					fw.write(i + ", " + id + ", " + name + ", " + credits + "\n");
+				}
+			}
+		}
+		finally
+		{
+			fw.close();
 		}
 	}
 }

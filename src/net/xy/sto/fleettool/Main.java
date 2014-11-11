@@ -1,7 +1,6 @@
 package net.xy.sto.fleettool;
 
 import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.InetSocketAddress;
@@ -9,7 +8,6 @@ import java.security.SecureRandom;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -47,7 +45,6 @@ import org.apache.http.protocol.BasicHttpContext;
 import org.apache.http.protocol.HTTP;
 import org.apache.http.protocol.HttpContext;
 import org.apache.http.util.EntityUtils;
-import org.json.JSONArray;
 import org.json.JSONObject;
 
 import com.sun.net.httpserver.HttpExchange;
@@ -68,25 +65,25 @@ public class Main
 	 */
 	private final ThreadPoolExecutor pool = new ThreadPoolExecutor(3, 10, 10, TimeUnit.MINUTES,
 			new ArrayBlockingQueue<Runnable>(100), new ThreadFactory()
-			{
-				/**
-				 * group
-				 */
-				private final ThreadGroup group = new ThreadGroup(Thread.currentThread().getThreadGroup(), "HttpStatWorker");
-				/**
-				 * incrementor
-				 */
-				private int count = 0;
+	{
+		/**
+		 * group
+		 */
+		private final ThreadGroup group = new ThreadGroup(Thread.currentThread().getThreadGroup(), "HttpStatWorker");
+		/**
+		 * incrementor
+		 */
+		private int count = 0;
 
-				@Override
-				public Thread newThread(final Runnable r)
-				{
-					final Thread th = new Thread(group, r);
-					th.setDaemon(true);
-					th.setName("HttpWorker-" + count++);
-					return th;
-				}
-			});
+		@Override
+		public Thread newThread(final Runnable r)
+		{
+			final Thread th = new Thread(group, r);
+			th.setDaemon(true);
+			th.setName("HttpWorker-" + count++);
+			return th;
+		}
+	});
 	/**
 	 * server ref
 	 */
@@ -95,6 +92,7 @@ public class Main
 	 * data store parser and renderer
 	 */
 	private final DonationTable donationTable;
+	private final ProjectTable projectTable;
 
 	/**
 	 * default
@@ -102,6 +100,7 @@ public class Main
 	public Main() throws ParseException, IOException
 	{
 		donationTable = new DonationTable(new File("data"));
+		projectTable = new ProjectTable(new File("data"));
 	}
 
 	/**
@@ -141,10 +140,28 @@ public class Main
 							props.put(keyval[0], keyval[1]);
 						}
 
-					// final String rootBag = props.getProperty("r", "groupserver");
+					final String stat = props.getProperty("s", "user");
 
-					final String res = donationTable.renderView(props);
-					final byte[] bytes = res.getBytes();
+					final StringBuilder sb = new StringBuilder();
+					sb.append("<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\"\r\n"
+							+ "\"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\r\n"
+							+ "<html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"en\" lang=\"en\">\r\n" + "<head>");
+					sb.append("<style type=\"text/css\">\n" //
+							+ "	* {font-family:\"arial\";font-size:12px;} \n" //
+							+ "	td {border-bottom:1px solid #AAAAAA;border-right:1px solid #AAAAAA;} \n" //
+							+ "	.credits {text-align:right;} \n" //
+							+ "	.date, .nick {font-weight:bold;} \n" //
+							+ "	.department {font-weight:bold;text-decoration:underline;} \n" //
+							+ "	.task {font-weight:bold;} \n" //
+							+ "		</style>");
+					sb.append("</head>");
+					sb.append("<body>");
+					final String res = stat.equals("user") ? donationTable.renderView(props) : projectTable
+							.renderView(props);
+					sb.append(res);
+					sb.append("</body></html>");
+
+					final byte[] bytes = sb.toString().getBytes();
 					// exc.getResponseHeaders().add("Content-Type", "text/plain;charset=ISO-8859-1");
 					exc.sendResponseHeaders(200, bytes.length);
 					exc.getResponseBody().write(bytes);
@@ -259,47 +276,9 @@ public class Main
 		sendPost(cl, tok, "5:::{\"name\":\"Client_RequestGroupProject\",\"args\":[{\"id\":\"2909\",\"params\":{}}]}", ctx);
 		final String awn = pollFor(cl, tok, ctx, "Proxy_GroupProject");
 
-		saveData(awn);
-	}
-
-	/**
-	 * stores the gateway awnser jsondata to an file
-	 */
-	private static void saveData(final String awn) throws IOException
-	{
-		final File root = new File("data");
-		if (!root.isDirectory())
-			root.mkdirs();
-		final SimpleDateFormat df = new SimpleDateFormat("yyMMdd_HHmmss");
-		final File target = new File(root, df.format(new Date()) + ".txt");
-		// args -> 0 -> container -> states -> X -> donationstats[]
-		// 0 Botschaft, 1 Mine, 2 Spire, 3 Basis
-		// {id:1386, displayname:Joran Brixs@Brixs, contribution:28125}
-		FileWriter fw = null;
-		try
-		{
-			fw = new FileWriter(target);
-			final JSONObject dat = new JSONObject(awn.substring(4));
-			final JSONArray states = ((JSONObject) dat.getJSONArray("args").get(0)).getJSONObject("container").getJSONArray(
-					"states");
-			for (int i = 0; i < states.length(); i++)
-			{
-				fw.write("\t=====  " + i + "  =====\n");
-				final JSONArray dons = ((JSONObject) states.get(i)).getJSONArray("donationstats");
-				for (int i2 = 0; i2 < dons.length(); i2++)
-				{
-					final JSONObject don = (JSONObject) dons.get(i2);
-					final int id = don.getInt("id");
-					final String name = don.getString("displayname");
-					final int credits = don.getInt("contribution");
-					fw.write(i + ", " + id + ", " + name + ", " + credits + "\n");
-				}
-			}
-		}
-		finally
-		{
-			fw.close();
-		}
+		final Date now = new Date();
+		DonationTable.saveData(awn, now);
+		ProjectTable.saveData(awn, now);
 	}
 
 	/**
