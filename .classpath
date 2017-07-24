@@ -9,6 +9,7 @@
 	<classpathentry kind="lib" path="lib/httpclient-cache-4.3.6.jar"/>
 	<classpathentry kind="lib" path="lib/httpcore-4.3.3.jar" sourcepath="lib/httpcomponents-client-4.3.6-src/httpcomponents-client-4.3.6"/>
 	<classpathentry kind="lib" path="lib/httpmime-4.3.6.jar"/>
-	<classpathentry kind="lib" path="lib/commons-io-2.4.jar"/>
+	<classpathentry kind="lib" path="lib/commons-io-2.4.jar" sourcepath="lib/commons-io-2.4-sources.jar"/>
+	<classpathentry kind="lib" path="lib/commons-csv-1.4.jar" sourcepath="lib/commons-csv-1.4-sources.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

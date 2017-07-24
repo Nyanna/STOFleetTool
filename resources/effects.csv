@@ -1,0 +1,272 @@
+Active Duty Roster Effects,,,,,
+You can also find these at:,,http://sto.gamepedia.com/Duty_officer,,,
+,,,,,
+"Use the ""Code"" in the 'Search' sheet to look for a specific effect. ""Max Active"" is per Specialization, not per Effect.",,,,,
+,,,,,
+Max Active,Specialization,Code,Area,Effect,Abilities
+Tactical,,,,,
+3,Conn Officer,43,[SP],Adds Acc/Deff Skill from Fly Her Apart and Hold Together,"Fly Her Apart, Hold Together"
+3,Conn Officer,44,[SP],"Chance for +Accuracy, +Perception for Tactical Team",Tactical Team
+3,Conn Officer,45,[SP],Chance for Attack Pattern Omega to apply lesser buff to the team,Attack Pattern Omega
+3,Conn Officer,46,[SP],Chance to reduce the time to recharge Evasive Maneuvers,Evasive Maneuvers
+3,Conn Officer,47,[SP],Recharge time reduced for Tactical Team and Buff,Tactical Team
+3,Conn Officer,48,[SP],Recharge time reduced for Tactical Team and Buff | (Ground+Space) Increased damage vs. Elachi,"Tactical Team, vs. Elachi"
+3,Conn Officer,49,[SP],Recharges Evasive Maneuvers when Emergency Power to Engines is activated,Emergency Power to Engines
+3,Conn Officer,50,[SP],"Reduce recharge time for Attack Patterns Beta, Delta and Omega","Attack Pattern Beta, Attack Pattern Delta, Attack Pattern Omega"
+3,Conn Officer,51,[SP],Small power boost after exiting Evasive Maneuvers,Evasive Maneuvers
+3,Energy Weapons Officer,81,[GR],"While Draw Fire is active, chance to Heal Self when hit",Draw Fire
+3,Energy Weapons Officer,82,[SP],Chance for Beam Overload to cause all attacks against the target to gain 35% Shield Penetration,Beam: Overload
+3,Energy Weapons Officer,83,[SP],Chance for stacking Crit Chance buff on firing Energy Weapons,Energy Weapons
+3,Energy Weapons Officer,84,[SP],Chance for stacking Crit Severity buff on firing Energy Weapons,Energy Weapons
+3,Energy Weapons Officer,85,[SP],Chance of Increased Weapon Damage from Lock Trajectory,Lock Trajectory
+3,Energy Weapons Officer,86,[SP],Chance to gain Shield Power when using Energy Weapons,Energy Weapons
+3,Energy Weapons Officer,87,[SP],Chance to reduce the time to recharge when using beam special attacks,"Beam Array: Fire at Will, Beam Array: Overload, Target Weapons Subsystems, Target Engines Subsystems, Target Shields Subsystems, Target Auxiliary Subsystems"
+3,Energy Weapons Officer,88,[SP],Chance to reduce the time to recharge when using beam special attacks | (Ground+Space) Increased damage vs. Elachi,"Beam Array: Fire at Will, Beam Array: Overload, Target Weapons Subsystems, Target Engines Subsystems, Target Shields Subsystems, Target Auxiliary Subsystems, vs. Elachi"
+3,Energy Weapons Officer,89,[SP],Chance to reduce the time to recharge when using cannon special attacks,"Cannon: Rapid Fire, Cannon: Scatter Volley"
+3,Energy Weapons Officer,90,[SP],Chance to reduce the time to recharge when using cannon special attacks | (Ground+Space) Increased damage vs. Elachi,"Cannon: Rapid Fire, Cannon: Scatter Volley, vs. Elachi"
+3,Energy Weapons Officer,91,[SP],Chance to reduce the time to recharge when using subsystem targeting attacks,"Target Weapons Subsystems, Target Engines Subsystems, Target Shields Subsystems, Target Auxiliary Subsystems"
+3,Energy Weapons Officer,92,[SP],Chance to remove currently applied buffs on use of beams and cannons,Energy Weapons
+3,Energy Weapons Officer,93,[SP],Increases Singularity Charge Rate,Singularity Core
+1,Ground Warfare Specialist,129,[GR],Chance of Outgoing Damage Applied as Healing (Captain Abilities),Captain Abilities
+1,Ground Warfare Specialist,130,[GR],Chance of Outgoing Damage Applied as Healing (Kit Abilities),Kit Abilities
+1,Ground Warfare Specialist,131,[GR],Increased damage vs. Borg,vs. Borg
+1,Ground Warfare Specialist,132,[GR],Increased damage vs. Breen,vs. Breen
+1,Ground Warfare Specialist,133,[GR],Increased damage vs. Federation,vs. Federation
+1,Ground Warfare Specialist,134,[GR],Increased damage vs. Fekihri,vs. Fekihri
+1,Ground Warfare Specialist,135,[GR],Increased damage vs. Gorn,vs. Gorn
+1,Ground Warfare Specialist,136,[GR],Increased damage vs. Klingons,vs. Klingons
+1,Ground Warfare Specialist,137,[GR],Increased damage vs. Nausicaans,vs. Nausicaans
+1,Ground Warfare Specialist,138,[GR],Increased damage vs. Orions,vs. Orions
+1,Ground Warfare Specialist,139,[GR],Increased damage vs. Romulans,vs. Romulans
+1,Ground Warfare Specialist,140,[GR],Increased damage vs. Tholians,vs. Tholians
+1,Ground Warfare Specialist,141,[GR],Increased damage vs. Undine,vs. Undine
+1,Ground Warfare Specialist,142,[GR],Increased damage vs. Vaadwaur,vs. Vaadwaur
+3,Projectile Weapons Officer,169,[SP],Chance for stacking Crit Chance buff on firing Projectiles,Projectiles
+3,Projectile Weapons Officer,170,[SP],Chance for stacking Crit Severity buff on firing Projectiles,Projectiles
+3,Projectile Weapons Officer,171,[SP],Chance to gain Shield Power when using Torpedo Weapons,Torpedoes
+3,Projectile Weapons Officer,172,[SP],Chance to increase Kinetic Damage from torpedoes,Torpedoes
+3,Projectile Weapons Officer,173,[SP],Chance to reduce the time to recharge mines,Mines
+3,Projectile Weapons Officer,174,[SP],Chance to reduce the time to recharge mines | (Ground+Space) Increased damage vs. Elachi,"Mines, vs. Elachi"
+3,Projectile Weapons Officer,175,[SP],Chance to reduce the time to recharge torpedoes,Torpedoes
+3,Projectile Weapons Officer,176,[SP],Chance to reduce the time to recharge torpedoes | (Ground+Space) Increased damage vs. Elachi,"Torpedoes, vs. Elachi"
+3,Projectile Weapons Officer,177,[SP],Torpedoes Gain Singularity Charge,"Torpedoes, Singularity Core"
+3,Shield Distribution Officer,206,[GR],Chance to cause Weapons Malfunction to enemies that fire on you while using Draw Fire,Draw Fire
+3,Shield Distribution Officer,207,[GR],Force Field Dome has a chance to knock nearby enemies prone,Force Field Dome
+3,Shield Distribution Officer,208,[SP],Attack Pattern Beta restores hull when firing,Attack Pattern Beta
+3,Shield Distribution Officer,209,[SP],Chance to disable nearest Shield Facing with Tachyon Beam,Tachyon Beam
+3,Shield Distribution Officer,210,[SP],Chance to restore shields when taking damage while Brace for Impact active,Brace for Impact
+3,Shield Distribution Officer,211,[SP],"Improved Ramming Speed while Brace for Impact is active: +Turn, No Self Damage",Brace for Impact
+3,Shield Distribution Officer,212,[SP],On each shot: Heal .2% of your hull (Stealth Nerfed),On each Shot
+1,Space Warfare Specialist,213,[SP],Chance of Outgoing Damage Applied as Healing (Captain Abilities),Captain Abilities
+1,Space Warfare Specialist,214,[SP],Chance of Outgoing Damage Applied as Healing (Engineering Abilities),Engineering Abilities
+1,Space Warfare Specialist,215,[SP],Chance of Outgoing Damage Applied as Healing (Science Abilities),Science Abilities
+1,Space Warfare Specialist,216,[SP],Chance of Outgoing Damage Applied as Healing (Tactical Abilities),Tactical Abilities
+1,Space Warfare Specialist,217,[SP],Increased damage vs. Borg,vs. Borg
+1,Space Warfare Specialist,218,[SP],Increased damage vs. Breen,vs. Breen
+1,Space Warfare Specialist,219,[SP],Increased damage vs. Federation,vs. Federation
+1,Space Warfare Specialist,220,[SP],Increased damage vs. Fekihri,vs. Fekihri
+1,Space Warfare Specialist,221,[SP],Increased damage vs. Gorn,vs. Gorn
+1,Space Warfare Specialist,222,[SP],Increased damage vs. Klingons,vs. Klingons
+1,Space Warfare Specialist,223,[SP],Increased damage vs. Nausicaans,vs. Nausicaans
+1,Space Warfare Specialist,224,[SP],Increased damage vs. Orions,vs. Orions
+1,Space Warfare Specialist,225,[SP],Increased damage vs. Romulans,vs. Romulans
+1,Space Warfare Specialist,226,[SP],Increased damage vs. Tholians,vs. Tholians
+1,Space Warfare Specialist,227,[SP],Increased damage vs. Undine,vs. Undine
+1,Space Warfare Specialist,228,[SP],Reduces Accuracy of Romulans,vs. Romulans
+Security,,,,,
+1,Armory Officer,4,[GR],"Chance to beam in an additional Phaser, Disruptor or Plasma Turret",Turret Fabrication
+1,Armory Officer,5,[GR],"Chance to beam in an additional Phaser, Disruptor or Plasma Turret | (Ground+Space) Increased damage vs. Elachi","Turret Fabrication, vs. Elachi"
+1,Armory Officer,6,[GR],Chance to reduce recharge on Turrets and Drones,"Turret Fabrication, Support Drone Fabrication"
+1,Armory Officer,7,[GR],Doubles chance to Expose target,Expose
+1,Armory Officer,8,[GR],Ground Operational Asset cooldown reduction,Operational Assets
+1,Armory Officer,9,[GR],Increases the duration of the damage boost from Stealth Module,Stealth Module
+1,Armory Officer,10,[SP],Chance to set a random second system offline when using Subsystem Targeting,"Target Weapons Subsystems, Target Engines Subsystems, Target Shields Subsystems, Target Auxiliary Subsystems"
+1,Armory Officer,11,[SP],Chance to summon a Tethered Quantum Mine when activating Dispersal Patterns,"Dispersal Pattern Alpha, Dispersal Pattern Beta"
+3,Assault Squad Officer,12,[GR],Ambush has a chance to re-apply when consumed by outgoing damage,Ambush
+3,Assault Squad Officer,13,[GR],Chance for stacking Crit Chance buff on firing Ranged weapons,Ranged Weapons
+3,Assault Squad Officer,14,[GR],Chance for stacking Crit Severity buff on firing Ranged weapons,Ranged Weapons
+3,Assault Squad Officer,15,[GR],Chance on any melee attack to knock back the target,Melee
+3,Assault Squad Officer,16,[GR],Chance to apply a Hold when using Lunge,Lunge
+3,Assault Squad Officer,17,[GR],Chance to deal Electric damage when using Sweeping Strikes,Sweeping Strikes
+3,Assault Squad Officer,18,[GR],Chance to reduce the recharge time by 2 sec whenever a grenade is thrown,"Photon Grenade, Smoke Grenade, Plasma Grenade, Stun Grenade"
+3,Assault Squad Officer,19,[GR],Extra Team Heal and Rez on Rally Cry,Rally Cry
+3,Assault Squad Officer,20,[SP],Chance for Boarding Party Shuttle to be armed.,Boarding Party
+3,Security Officer,195,[GR],Chance to beam down an additional security escort when using Security Team,Security Team
+3,Security Officer,196,[GR],Chance to beam down an additional security escort when using Security Team | (Ground+Space) Increased damage vs. Elachi,"Security Team, vs. Elachi"
+3,Security Officer,197,[GR],Chance to Gain Defense Boost When Using Ambush,Ambush
+3,Security Officer,198,[GR],Increased melee Crit Chance & Severity,Melee
+3,Security Officer,199,[GR],Using Ambush causes your next attack to deal double damage as a DoT,Ambush
+3,Security Officer,200,[GR],Your Chroniton Mine Barrier has a chance to Hold targets in place,Chroniton Mine Barrier
+3,Security Officer,201,[SP],Extra Threat Generation with Attack Pattern Delta,Attack Pattern Delta
+Engineering,,,,,
+1 per Type,Consultant,52,[GR],Bonus CXP,Bonus Points
+1 per Type,Consultant,53,[GR],Bonus Expertise,Bonus Points
+1 per Type,Consultant,54,[GR],Bonus Fleet Marks (Is this even still in the game?),Bonus Points
+1 per Type,Consultant,55,[GR],Bonus Skill Points,Bonus Points
+3,Damage Control Engineer,57,[GR],Adds Electrical Damage to Weapons Malfunction,Weapons Malfunction
+3,Damage Control Engineer,58,[GR],Gives a minor Resistance buff to any target of your Quick Fix,Quick Fix
+3,Damage Control Engineer,59,[SP],"After using Auxiliary to Structural Integrity Field, Placate next attacker",Auxiliary to Structural Integrity Field
+3,Damage Control Engineer,60,[SP],Chance to add Hull Healing Over Time to Auxiliary Power to Structural Integrity Field,Auxiliary to Structural Integrity Field
+3,Damage Control Engineer,61,[SP],Chance to reduce the recharge time for Emergency Power to subsystem abilities,"Emergency Power to Auxiliary, Emergency Power to Weapons, Emergency Power to Engines, Emergency Power to Shields"
+3,Damage Control Engineer,62,[SP],Chance to reduce the recharge time for Emergency Power to subsystem abilities | (Ground+Space) Increased damage vs. Elachi,"Emergency Power to Auxiliary, Emergency Power to Weapons, Emergency Power to Engines, Emergency Power to Shields, vs. Elachi"
+3,Diagnostic Engineer,70,[GR],Chance to grant 99% Shield Damage Resistance when using Shield Recharge,Shield Recharge
+3,Diagnostic Engineer,71,[GR],Chance to increase ranged damage with Equipment Diagnostics,Equipment Diagnostics
+3,Diagnostic Engineer,72,[GR],Gives your Weapons Malfunction a chance to chain to nearby enemies,Weapons Malfunction
+3,Diagnostic Engineer,73,[GR],Self Weapon Dmg from Delegated Devastation,Delegated Devastation
+3,Diagnostic Engineer,74,[SP],Chance to gain Aux Power from Hull Heals,Hull Heals (need more info)
+1,Fabrication Engineer,103,[GR],Chance to beam in an additional Support Drone,Support Drone Fabrication
+1,Fabrication Engineer,104,[SP],Chance for Transfer Shield Strength to increase Auxiliary Power,Transfer Shield Strength
+1,Fabrication Engineer,105,[SP],Increased Skills from using Ensign Bridge Officer Abilities,Ensign Bridge Officer Abilities
+1,Fabrication Engineer,106,[SP],Increased Skills from using Lieutenant Bridge Officer Abilities,Lieutenant Bridge Officer Abilities
+1,Fabrication Engineer,107,[SP],Increased Skills from using Lt Commander Bridge Officer Abilities,Lt Commander Bridge Officer Abilities
+1,Fabrication Engineer,108,[SP],Increased Skills from using Commander Bridge Officer Abilities,Commander Bridge Officer Abilities
+1,Fabrication Engineer,109,[SP],Increases the duration of Reverse Shield Polarity,Reverse Shield Polarity
+1,Fabrication Engineer,110,[SP],Space Operational Asset cooldown reduction,Operational Assets
+1,Fabrication Engineer,111,[SP],Tricobalt Torpedoes have a chance of higher flight speed,Torpedoes
+3,Maintenance Engineer,149,[SP],Additional buffs applied based on type of battery activated,Batteries
+3,Maintenance Engineer,150,[SP],Increases Healing Skills when using Emergency Power to Auxiliary,Emergency Power to Auxiliary
+3,Maintenance Engineer,151,[SP],Recharge time reduced for Engineering Team and Buff,Engineering Team
+1,Matter-Antimatter Specialist,152,[SP],Chance for Directed Energy Modulation to apply Accuracy buff to team,Directed Energy Modulation
+1,Matter-Antimatter Specialist,153,[SP],Chance for Gravity Well to knock enemy Engines Offline,Gravity Well
+1,Matter-Antimatter Specialist,154,[SP],Chance to immobilize enemies when activating Eject Warp Plasma,Eject Warp Plasma
+1,Matter-Antimatter Specialist,155,[SP],Chance to set target's Weapons Offline with Aceton Beam,Aceton Beam
+1,Matter-Antimatter Specialist,156,[SP],Increase Control Resistance when using Emergency Power to Engine,Emergency Power to Engines
+1,Matter-Antimatter Specialist,157,[SP],Increase Energy Resistance and Buff Duration when using Auxiliary Power to Inertial Dampeners,Auxiliary to Dampeners
+3,Systems Engineer,229,[GR],Combat Supply has a chance to set up Chroniton Mines,Chroniton Mine Barrier
+3,Systems Engineer,230,[SP],Chance for Viral Matrix to spread to additional targets,Viral Matrix
+3,Systems Engineer,231,[SP],Chance to add power to all Sub-Systems,Subsystem Power Levels
+3,Systems Engineer,232,[SP],Chance to shut down additional subsystems after 30 sec when using Viral Matrix,Viral Matrix
+3,Systems Engineer,233,[SP],Chance to shut down additional subsystems after 30 sec when using Viral Matrix | (Ground+Space) Increased damage vs. Elachi,"Viral Matrix, vs. Elachi"
+3,Systems Engineer,234,[SP],Reduces Weapon Subsystem Energy Drain while using Directed Energy Modulation,Directed Energy Modulation
+3,Technician,235,[GR],Adds Electrical Damage to Tachyon Harmonic vs. Non-Living Enemies,Tachyon Harmonic
+3,Technician,236,[SP],Additional Auxiliary Power Buff while Cloaked,Cloak
+3,Technician,237,[SP],Drains target shields with Tractor Beam,Tractor Beam
+3,Technician,238,[SP],Increase Exotic Damage when using Emergency Power to Auxiliary,Emergency Power to Auxiliary
+3,Technician,239,[SP],Recharge time on bridge officer abilities reduced,Auxiliary to Battery
+3,Technician,240,[SP],Recharge time on bridge officer abilities reduced | (Ground+Space) Increased damage vs. Elachi,"Auxiliary to Battery, vs. Elachi"
+3,Technician,241,[SP],Recharge time reduced for Engineering Team and Buff,Engineering Team
+1,Warp Core Engineer,250,[SP],Chance of removing all debuffs on use of any Emergency Power ability,"Emergency Power to Auxiliary, Emergency Power to Weapons, Emergency Power to Engines, Emergency Power to Shields"
+1,Warp Core Engineer,251,[SP],Chance of temporarily improving your ship power on use of any Emergency Power ability,"Emergency Power to Auxiliary, Emergency Power to Weapons, Emergency Power to Engines, Emergency Power to Shields"
+1,Warp Core Engineer,252,[SP],Chance to reduce Singularity Lockout duration when activating Emergency Power abilities,"Emergency Power to Auxiliary, Emergency Power to Weapons, Emergency Power to Engines, Emergency Power to Shields"
+1,Warp Core Engineer,253,[SP],Increased Shield Damage Resistance to self when using Extend Shields,Extend Shields
+Operations,,,,,
+3,Deflector Officer,63,[SP],Chance to gain Aux Power when activating Exotic Damage abilities,Exotic Damage Abilities
+3,Deflector Officer,64,[SP],Chance to reduce the recharge time for Deflector abilities,Deflector Abilities
+3,Deflector Officer,65,[SP],Chance to reflect damage while using Polarize Hull,Polarize Hull
+3,Deflector Officer,66,[SP],Increased Exotic Damage from Singularity Activation,Singularity Core
+1,Explosives Expert,96,[GR],Chance for Exothermic Induction Field to fire projectiles,Exothermic Induction Field
+1,Explosives Expert,97,[GR],Chance to beam in an additional Quantum Mortar,Quantum Mortar Fabrication
+1,Explosives Expert,98,[GR],Chance to cause Radiation AOE on Exploit Attack,Exploit
+1,Explosives Expert,99,[GR],Chance to Disable Weapons with Chroniton Mines,Chroniton Mine Barrier
+1,Explosives Expert,100,[GR],Coordinate Bombing Strike gains Knockback chance,Coordinate Bombing Strike
+1,Explosives Expert,101,[GR],Stun Grenade now sticks to your target and explodes after 3 seconds,Stun Grenade
+1,Explosives Expert,102,[SP],Torpedo Taunt/Placate (based on Threatening Stance),Threatening Stance
+3,Flight Deck Officer,112,[SP],Chance to double the number of shuttles launched with Boarding Parties,Boarding Party
+3,Flight Deck Officer,113,[SP],Chance to reduce the time to recharge Call Emergency Artillery,Call Emergency Artillery
+3,Flight Deck Officer,114,[SP],Increase carrier pet Accuracy while in Intercept Mode,Hangar Pets
+3,Flight Deck Officer,115,[SP],Increase carrier pet Damage while in Escort Mode,Hangar Pets
+3,Flight Deck Officer,116,[SP],Increase carrier pet Defense while in Recall Mode,Hangar Pets
+3,Flight Deck Officer,117,[SP],Reduce the time to recharge hangar bays and Boarding Party,Hangar Pets
+3,Hazard System Officer,143,[GR],Your Fuse Armor has a chance to deal double damage,Fuse Armor
+3,Hazard System Officer,144,[SP],Adds Hull Restoration from Rally Point Marker and Needs Of The Many,"Rally Point Marker, Needs Of The Many"
+3,Hazard System Officer,145,[SP],Chance to drain target's susbsystem energy when using Aceton Beam,Aceton Beam
+3,Hazard System Officer,146,[SP],Damage resistance buff with Ramming Speed and Brace for Impact,"Ramming Speed, Brace for Impact"
+3,Hazard System Officer,147,[SP],Damage resistance buff with Ramming Speed and Brace for Impact | (Ground+Space) Increased damage vs. Elachi,"Ramming Speed, Brace for Impact, vs. Elachi"
+1,Quartermaster,178,[GR],Causes Cover Shield to give a Resistance buff to nearby allies,Cover Shield
+1,Quartermaster,179,[GR],Chance for Fire on my Mark to expose target,Fire on my Mark
+1,Quartermaster,180,[GR],Ground Operational Asset Discount,Operational Assets
+1,Quartermaster,181,[GR],Reduces recharge time for Combat Supply,Combat Supply
+1,Quartermaster,182,[SP],Recharge time reduced on all Batteries,Batteries
+1,Quartermaster,183,[SP],Space Operational Asset Discount,Operational Assets
+1,Sensors Officer,202,[GR],Target Optics debuffs enemy Damage Resistance,Target Optics
+1,Sensors Officer,203,[SP],Debuff target's offensive damage with Sensor Scan,Sensor Scan
+1,Sensors Officer,204,[SP],Debuff target's offensive damage with Sensor Scan | (Ground+Space) Increased damage vs. Elachi,"Sensor Scan, vs. Elachi"
+1,Sensors Officer,205,[SP],Increases Damage Threshold to Break Jam Sensors,Jam Sensors
+1,Tractor Beam Officer,242,[SP],Drains Engine Subsystem with Tractor Beam Repulsors,Tractor Beam Repulsors
+1,Tractor Beam Officer,243,[SP],Drains target shields with Tractor Beam,Tractor Beam
+1,Tractor Beam Officer,244,[SP],Drains target shields with Tractor Beam | (Ground+Space) Increased damage vs. Elachi,"Tractor Beam, vs. Elachi"
+1,Tractor Beam Officer,245,[SP],Tractor Beam Repulsors now Pulls nearby enemy ships,Tractor Beam Repulsors
+3,Transporter Officer,247,[GR],Chance to create a Medical Generator or Shield Generator when the other is used,"Shield Generator Fabrication, Medical Generator Fabrication"
+3,Transporter Officer,248,[GR],Decreases recharge time of ground combat pet devices and consumables,"Ground Combat Pets, Ground Consumables"
+3,Transporter Officer,249,[SP],Chance to remove hostile boarding parties with Transfer Shield Strength,Transfer Shield Strength
+Science,,,,,
+1,Astrometrics Scientist,21,[SP],Chance for Hazard Emitters to apply an additional heal after 15 seconds,Hazard Emitters
+1,Astrometrics Scientist,22,[SP],Chance of Collecting Additional R&D Materials,Collecting R&D Materials
+1,Astrometrics Scientist,23,[SP],Chance to set target's Engines Offline with Subnucleonic Beam,Subnucleonic Beam
+1,Astrometrics Scientist,24,[SP],Improved Hazard Emitters,Hazard Emitters
+1,Astrometrics Scientist,25,[SP],Improved Mask Energy Signature,Mask Energy Signature
+1,Astrometrics Scientist,26,[SP],Recharge time reduced on all Transwarp abilities,Transwarp
+1,Astrometrics Scientist,27,[SP],Subnucleonic Carrier Wave can knock random subsystems offline,Subnucleonic Carrier Wave
+1,Biologist,36,[GR],Chance for Vascular Regenerator to apply an additional heal after 10 seconds,Vascular Regenerator
+1,Biologist,37,[GR],Increases the duration of Anesthezine Gas and Tricorder Scan debuffs,"Anesthizine Gas, Tricorder Scan"
+1,Biologist,38,[GR],Increases the duration of Anesthezine Gas and Tricorder Scan debuffs | (Ground+Space) Increased damage vs. Voth,"Anesthizine Gas, Tricorder Scan, vs. Voth"
+1,Biologist,39,[SP],Chance for Accuracy Buff after activating Exotic Damage,Accuracy
+1,Biologist,40,[SP],Debuffs the recharge times of those affected by Scramble Sensors,Scramble Sensors
+1,Biologist,41,[SP],Debuffs the recharge times of those affected by Scramble Sensors | (Ground+Space) Increased damage vs. Elachi,"Scramble Sensors, vs. Elachi"
+3,Botanist,42,[GR],Chance for Melorazine and Dylovene to affect your entire team when used,"Hypospray - Dylovene, Hypospray - Melorazine"
+3,Development Lab Scientist,67,[SP],Adds Resistance Debuff to Feedback Pulse,Feedback Pulse
+3,Development Lab Scientist,68,[SP],Recharge time reduced for Science Team and Buff,Science Team
+3,Development Lab Scientist,69,[SP],Recharge time reduced for Science Team and Buff | (Ground+Space) Increased damage vs. Voth,"Science Team, vs. Voth"
+3,Geologist,118,[GR],Chance to create a Phasic Instability which draws enemies toward it,Electro-Gravitic Field
+3,Geologist,119,[GR],Chance to reduce cooldown on Exothermic Induction Field and Hyperonic Radiation,"Exothermic Induction Field, Hyperonic Radiation"
+3,Geologist,120,[GR],Chance to root foes affected by your Exothermic Induction Field,Exothermic Induction Field
+1,Gravimetric Scientist,121,[GR],PBAoE Shield Heal from Resonant Tachyon Stream,Resonant Tachyon Stream
+1,Gravimetric Scientist,122,[SP],Chance to apply Radiation damage on use of Charged Particle Burst,Charged Particle Burst
+1,Gravimetric Scientist,123,[SP],Chance to create an aftershock Gravity Well,Gravity Well
+1,Gravimetric Scientist,124,[SP],Chance to create an aftershock Gravity Well | (Ground+Space) Increased damage vs. Elachi,"Gravity Well, vs. Elachi"
+1,Gravimetric Scientist,125,[SP],Chance to create an aftershock Tyken's Rift,Tyken's Rift
+1,Gravimetric Scientist,126,[SP],"Improved Repel for Photonic Shockwave, but removes Disable component",Photonic Shockwave
+1,Gravimetric Scientist,127,[SP],Reduce Cooldown on Exotic Damage abilities when creating anomalies,Exotic Damage Abilities
+1,Gravimetric Scientist,128,[SP],Singularity decays slower while Cloaked,Singularity Core
+3,Photonic Studies Scientist,166,[SP],Chance to trigger a Photonic Aftershock,Photonic Shockwave
+3,Photonic Studies Scientist,167,[SP],Chance to trigger a Photonic Aftershock | (Ground+Space) Increased damage vs. Elachi,"Photonic Shockwave, vs. Elachi"
+3,Photonic Studies Scientist,168,[SP],Reduce recharge time of Photonic abilities,Photonic Abilities
+3,Research Lab Scientist,184,[GR],Adds Electrical Damage to Stasis Field.,Stasis Field
+3,Research Lab Scientist,185,[GR],Chance for Stasis Field to spread to one additional target,Stasis Field
+3,Research Lab Scientist,186,[GR],Chance to Confuse with Neural Neutralizer,Neural Neutralizer
+3,Research Lab Scientist,187,[SP],Chance for -15 sec recharge on shield heals when using Science Team,Science Team
+3,Research Lab Scientist,188,[SP],Chance to Placate when using Charged Particle Burst,Charged Particle Burst
+3,Research Lab Scientist,189,[SP],Chance to Placate when using Charged Particle Burst | (Ground+Space) Increased damage vs. Voth,"Charged Particle Burst, vs. Voth"
+3,Research Lab Scientist,190,[SP],Increased Skills from using Ensign Bridge Officer Abilities,Ensign Bridge Officer Abilities
+3,Research Lab Scientist,191,[SP],Increased Skills from using Lieutenant Bridge Officer Abilities,Lieutenant Bridge Officer Abilities
+3,Research Lab Scientist,192,[SP],Increased Skills from using Lt Commander Bridge Officer Abilities,Lt Commander Bridge Officer Abilities
+3,Research Lab Scientist,193,[SP],Increased Skills from using Commander Bridge Officer Abilities,Commander Bridge Officer Abilities
+3,Research Lab Scientist,194,[SP],Tachyon Beam pulls your target closer to you,Tachyon Beam
+3,Warp Theorist,254,[SP],Adds Control Expertise from EMP Probe and Ionic Turbulence,"EMP Probe, Ionic Turbulence"
+3,Warp Theorist,255,[SP],Applies a turn rate debuff with Tachyon Beam,Tachyon Beam
+3,Warp Theorist,256,[SP],Chance to disable one subsystem when using Energy Siphon,Energy Siphon
+3,Warp Theorist,257,[SP],Increased Turn Rate at Full Impulse,Full Impulse
+3,Warp Theorist,258,[SP],Singularity decays slower at Full Impulse,"Full Impulse, Singularity Core"
+Medical,,,,,
+1,Biochemist,28,[GR],Adds a damage resistance debuff when most Science Kit debuffs are applied,Science Kit Debuffs
+1,Biochemist,29,[GR],Adds a damage resistance debuff when most Science Kit debuffs are applied | (Ground+Space) Increased damage vs. Elachi,"Science Kit Debuffs, vs. Elachi"
+1,Biochemist,30,[GR],Adds a Rooted effect to Sonic Pulse,Sonic Pulse
+1,Biochemist,31,[GR],Anesthizine Gas projectile now sticks to your target and explodes after 3 seconds,Anesthizine Gas
+1,Biochemist,32,[GR],Chance for Nanite Health Monitor to have extra charges,Nanite Health Monitor
+1,Biochemist,33,[GR],Movement Boost from Frictionless Particle Grenade,Frictionless Particle Grenade
+1,Biochemist,34,[GR],"Recharge time reduced on all Stims, Shield Charges and Power Cells",Ground Consumables
+1,Biochemist,35,[SP],Reduce Threat after activating Exotic Damage,Exotic Damage Abilities
+3,Counselor,56,[GR],Chance to apply a Willpower buff when Science Buff or Heal is used,"Science Kit Buffs, Science Kit Heals"
+3,Doctor,77,[GR],Chance to reduce recharge on Science Kit heals,Science Kit Heals
+3,Doctor,78,[GR],Chance to trigger an additional small heal when using Triage or Medical Tricorder,"Triage, Medical Tricorder"
+3,Doctor,79,[GR],Chance to trigger an additional small heal when using Triage or Medical Tricorder | (Ground+Space) Increased damage vs. Elachi,"Triage, Medical Tricorder, vs. Elachi"
+3,Doctor,80,[GR],"On use of Medical Tricorder or Vascular Regenerator, chance to increase your maximum hit points","Medical Tricorder, Vascular Regenerator"
+3,Medic,158,[GR],Chance to activate an EMH Mk I when using a hypo,Hypo
+3,Medic,159,[GR],Chance to beam down additional medical support when using a hypo,Hypo
+3,Medic,160,[GR],Chance to beam down additional medical support when using a hypo | (Ground+Space) Increased damage vs. Elachi,"Hypo, vs. Elachi"
+3,Medic,161,[SP],"Increases crew recovery while in combat, when crew is below 75%",
+3,Nurse,162,[GR],Chance to activate an EMH Mk I when using a hypo,Hypo
+3,Nurse,163,[GR],Chance to beam down additional medical support when using a hypo,Hypo
+3,Nurse,164,[GR],Chance to beam down additional medical support when using a hypo | (Ground+Space) Increased damage vs. Elachi,"Hypo, vs. Elachi"
+3,Nurse,165,[SP],"Increases crew recovery while in combat, when crew is below 75%",
+Civilian,,,,,
+1,Advisor,1,[GR],Reduce recharge time for psionic traits,Psionic Traits
+1,Advisor,2,[GR],Remove debuffs with Overwatch,Overwatch
+1,Advisor,3,[SP],Chance to reduce recharge on hull heals when using any shield heal,Space Shield Heals
+1,Diplomat,75,[SP],"Chance of Heal from Reverse Shield Polarity, Feedback Pulse","Reverse Shield Polarity, Feedback Pulse"
+1,Diplomat,76,[SP],Team abilities grant a chance to drain attacker's Weapon Power,Team Abilities
+1,Entertainer,94,[GR],Grants a temporary bonus to Dodge for anyone who spends a short time dancing under your Subspace Party Amplifier,Subspace Party Amplifier
+1,Entertainer,95,[SP],Chance to inhibit target's Perception on use of beams and cannons,Energy Weapons
+1,Trader,246,[GR],Grant Gold-Pressed Latinum on Defeating Nearby Enemies,Gold-Pressed Latinum
+Other,,,,,
+1,Kobali,148,[GR/SP],(Ground+Space) Increased damage vs. Vaadwaur,vs. Vaadwaur
